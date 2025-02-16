@@ -24,15 +24,26 @@
             // TODO: Grab the latitude from your array at index 0
             // You're going to need to parse your string as a `double`
             // which is similar to parsing a string as an `int`
+
+            double latitude = 0;
+            if (double.TryParse(cells[0], out latitude) == false)
+            {
+                logger.LogError($" {cells}Invalid Latitude, wasn't able to parse double.");
+            }
             
             
             // TODO: Grab the longitude from your array at index 1
             // You're going to need to parse your string as a `double`
             // which is similar to parsing a string as an `int`
+            double longitude = 0;
+            if (double.TryParse(cells[1], out longitude) == false)
+            {
+                logger.LogError($" {cells}Invalid Longitude, wasn't able to parse double.");
+            }
             
             
             // TODO: Grab the name from your array at index 2
-            
+            var name = cells[2];
 
             // TODO: Create a TacoBell class
             // that conforms to ITrackable
