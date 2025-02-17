@@ -50,24 +50,39 @@ namespace LoggingKata
             double distance = 0; 
             
             
-            // TODO: Create a `double` variable to store the distance
+            // Done: Create a `double` variable to store the distance
 
-            // TODO: Add the Geolocation library to enable location comparisons: using GeoCoordinatePortable;
+            // Done: Add the Geolocation library to enable location comparisons: using GeoCoordinatePortable;
             // Look up what methods you have access to within this library.
 
             // NESTED LOOPS SECTION----------------------------
             
             // FIRST FOR LOOP -
-            // TODO: Create a loop to go through each item in your collection of locations.
+            // Done: Create a loop to go through each item in your collection of locations.
             // This loop will let you select one location at a time to act as the "starting point" or "origin" location.
             // Naming suggestion for variable: `locA`
-
-            // TODO: Once you have locA, create a new Coordinate object called `corA` with your locA's latitude and longitude.
+            // Done: Once you have locA, create a new Coordinate object called `corA` with your locA's latitude and longitude.
+            for (int i = 0; i < locations.Length; i++)
+            {
+                var locA = locations[i];
+                var corA = new GeoCoordinate();
+                corA.Latitude = locA.Location.Latitude;
+                corA.Longitude = locA.Location.Longitude;
 
             // SECOND FOR LOOP -
-            // TODO: Now, Inside the scope of your first loop, create another loop to iterate through locations again.
+            // Done: Now, Inside the scope of your first loop, create another loop to iterate through locations again.
             // This allows you to pick a "destination" location for each "origin" location from the first loop. 
             // Naming suggestion for variable: `locB`
+                for (int j = 0; j < locations.Length; j++)
+                {
+                    var locB = locations[j];
+                    var corB = new GeoCoordinate();
+                    corB.Latitude = locB.Location.Latitude;
+                    corB.Longitude = locB.Location.Longitude;
+                }
+            }
+
+
 
             // TODO: Once you have locB, create a new Coordinate object called `corB` with your locB's latitude and longitude.
 
