@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.IO;
 using GeoCoordinatePortable;
+using System.Collections.Generic;
 
 namespace LoggingKata
 {
@@ -15,11 +16,20 @@ namespace LoggingKata
             // Objective: Find the two Taco Bells that are the farthest apart from one another.
             // Some of the TODO's are done for you to get you started. 
 
-            logger.LogInfo("Log initialized");
+            logger.LogInfo("Log initialized.......");
 
             // Use File.ReadAllLines(path) to grab all the lines from your csv file. 
             // Optional: Log an error if you get 0 lines and a warning if you get 1 line
             string[] lines = File.ReadAllLines(csvPath);
+            if (lines.Length == 0)
+            {
+                logger.LogError("Log file is empty");
+            }
+
+            if (lines.Length == 1)
+            {
+                logger.LogWarning("File only has one line of input.");
+            }
 
             // This will display the first item in your lines array
             logger.LogInfo($"Lines: {lines[0]}");
@@ -28,14 +38,17 @@ namespace LoggingKata
             var parser = new TacoParser();
 
             // Use the Select LINQ method to parse every line in lines collection
-            //could also use var locations =  lines.Select(line =>parser.Parse(line)).ToArray();
-            ITrackable[] locations = lines.Select(line  => parser.Parse(line)).ToArray();
+            var locations = lines.Select(line  => parser.Parse(line)).ToArray();
 
   
             // Complete the Parse method in TacoParser class first and then START BELOW ----------
 
-            // TODO: Create two `ITrackable` variables with initial values of `null`. 
+            // Done: Create two `ITrackable` variables with initial values of `null`. 
             // These will be used to store your two Taco Bells that are the farthest from each other.
+            ITrackable tacoBell1 = null;
+            ITrackable tacoBell2 = null;
+            double distance = 0; 
+            
             
             // TODO: Create a `double` variable to store the distance
 

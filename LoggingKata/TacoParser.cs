@@ -51,7 +51,7 @@
             TacoBell.Name = name;
             TacoBell.Location = point;
 
-            // TODO: Then, return the instance of your TacoBell class,
+            // Done: Then, return the instance of your TacoBell class,
             // since it conforms to ITrackable
 
             return TacoBell;
