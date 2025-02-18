@@ -75,19 +75,25 @@ namespace LoggingKata
             // Naming suggestion for variable: `locB`
                 for (int j = 0; j < locations.Length; j++)
                 {
+                    // Done: Once you have locB, create a new Coordinate object called `corB` with your locB's latitude and longitude.
                     var locB = locations[j];
                     var corB = new GeoCoordinate();
                     corB.Latitude = locB.Location.Latitude;
                     corB.Longitude = locB.Location.Longitude;
+                    
+                    // Done: Now, still being inside the scope of the second for loop, compare the two locations using `.GetDistanceTo()` method, which returns a double.
+                    // If the distance is greater than the currently saved distance, update the distance variable and the two `ITrackable` variables you set above.
+                    if (corA.GetDistanceTo(corB) > distance)
+                    {
+                        distance = corA.GetDistanceTo(corB); 
+                        tacoBell1 = locA;
+                        tacoBell2 = locB;
+                    }
                 }
             }
 
 
-
-            // TODO: Once you have locB, create a new Coordinate object called `corB` with your locB's latitude and longitude.
-
-            // TODO: Now, still being inside the scope of the second for loop, compare the two locations using `.GetDistanceTo()` method, which returns a double.
-            // If the distance is greater than the currently saved distance, update the distance variable and the two `ITrackable` variables you set above.
+            
 
             // NESTED LOOPS SECTION COMPLETE ---------------------
 
